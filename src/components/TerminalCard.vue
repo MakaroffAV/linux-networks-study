@@ -17,9 +17,8 @@
                 />
             </div>
             <div class="card-body" v-if="this.valid">
-                <p class="text-muted">
-                    {{ this.output }}
-                </p>
+                <div v-html="this.output">
+            	</div>
             </div>
         </div>
     </div>
@@ -66,7 +65,7 @@ export default {
 
         checkInput(userInput) {
 
-            if (userInput.toLowerCase() === this.input) {
+            if (userInput.toLowerCase() === this.input.toLowerCase()) {
                 this.valid = true
                 this.showError = false
             } else {

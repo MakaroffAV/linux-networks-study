@@ -4,21 +4,21 @@
             <PageHeader 
                 title=""
                 header="Tcpdump"
-                @buttonClicked="this.openPingCanvas"
+                @buttonClicked="this.changeTcpDumpModalStatus"
             />
 
             <Modal
-                v-if="this.getPingCanvasOpen"
-                :title="this.getPingCanvasTitle"
-                :description="this.getPingCanvasDescription"
-                @closeCanvas="this.changePingCanvasOpenStatus"
+                v-if="this.getTcpDumpModalStatus"
+                :title="this.getTcpDumpModalTitle"
+                :description="this.getTcpDumpModalDescription"
+                @closeCanvas="this.changeTcpDumpModalStatus"
             />
 
             <div class="page-body">
                 <div class="container-xl">
                     <div class="row-cards">
                         <TerminalCard
-                            v-for="card in this.getPingTerminalCards" :key="card.title"
+                            v-for="card in this.getTcpdumpTerminals" :key="card.title"
                             :title="card.title"
                             :input="card.input"
                             :output="card.output"
@@ -36,28 +36,28 @@
 import { mapGetters, mapMutations } from "vuex"
 
 import Base from "../layouts/Base.vue"
+import Modal from "@/components/ModalInfo.vue"
 import PageHeader from "@/components/PageHeader.vue"
 import TerminalCard from "@/components/TerminalCard.vue"
-import Modal from "@/components/ModalInfo.vue"
 
 export default {
 
 	components: {
     Base,
+    Modal,
     PageHeader,
     TerminalCard,
-    Modal
 },
 
     computed: {
         ...mapGetters([
 
-            "getPingCanvasOpen",
+            "getTcpDumpModalStatus",
 
-            "getPingCanvasTitle",
-            "getPingCanvasDescription",
+            "getTcpDumpModalTitle",
+            "getTcpDumpModalDescription",
 
-            "getPingTerminalCards"
+            "getTcpdumpTerminals"
 
         ])
     },
@@ -65,16 +65,8 @@ export default {
 	methods: {
 
         ...mapMutations([
-            "changePingCanvasOpenStatus"
+            "changeTcpDumpModalStatus"
         ]),
-
-        openPingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
-
-        closePingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
 
   },
 

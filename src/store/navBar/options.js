@@ -13,16 +13,10 @@ const state = {
 			title: "Nmap",
 		},
 		{
-			title: "Nmcli",
-		},
-		{
 			title: "Telnet",
 		},
 		{
 			title: "Netstat",
-		},
-		{
-			title: "Routing",
 		},
 		{
 			title: "Tcpdump",

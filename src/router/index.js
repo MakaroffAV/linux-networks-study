@@ -12,11 +12,6 @@ const routes = [
 		component: () => import("../views/Nmap.vue") 
 	},
 	{
-		path: "/nmcli",
-		name: "Nmcli",
-		component: () => import("../views/Nmcli.vue") 
-	},
-	{
 		path: "/telnet",
 		name: "Telnet",
 		component: () => import("../views/Telnet.vue") 
@@ -25,11 +20,6 @@ const routes = [
 		path: "/netstat",
 		name: "Netstat",
 		component: () => import("../views/Netstat.vue") 
-	},
-	{
-		path: "/routing",
-		name: "Routing",
-		component: () => import("../views/Routing.vue") 
 	},
 	{
 		path: "/tcpdump",

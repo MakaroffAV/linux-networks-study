@@ -4,21 +4,21 @@
             <PageHeader 
                 title=""
                 header="Nmap"
-                @buttonClicked="this.openPingCanvas"
+                @buttonClicked="this.changeNmapModalStatus"
             />
 
             <Modal
-                v-if="this.getPingCanvasOpen"
-                :title="this.getPingCanvasTitle"
-                :description="this.getPingCanvasDescription"
-                @closeCanvas="this.changePingCanvasOpenStatus"
+                v-if="this.getNmapModalStatus"
+                :title="this.getNmapModalTitle"
+                :description="this.getNmapModalDescription"
+                @closeCanvas="this.changeNmapModalStatus"
             />
 
             <div class="page-body">
                 <div class="container-xl">
                     <div class="row-cards">
                         <TerminalCard
-                            v-for="card in this.getPingTerminalCards" :key="card.title"
+                            v-for="card in this.getNmapTerminals" :key="card.title"
                             :title="card.title"
                             :input="card.input"
                             :output="card.output"
@@ -52,12 +52,12 @@ export default {
     computed: {
         ...mapGetters([
 
-            "getPingCanvasOpen",
+            "getNmapModalStatus",
 
-            "getPingCanvasTitle",
-            "getPingCanvasDescription",
+            "getNmapModalTitle",
+            "getNmapModalDescription",
 
-            "getPingTerminalCards"
+            "getNmapTerminals"
 
         ])
     },
@@ -65,16 +65,8 @@ export default {
 	methods: {
 
         ...mapMutations([
-            "changePingCanvasOpenStatus"
+            "changeNmapModalStatus"
         ]),
-
-        openPingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
-
-        closePingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
 
   },
 

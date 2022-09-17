@@ -4,21 +4,21 @@
             <PageHeader 
                 title=""
                 header="Netstat"
-                @buttonClicked="this.openPingCanvas"
+                @buttonClicked="this.changeNetstatModalStatus"
             />
 
             <Modal
-                v-if="this.getPingCanvasOpen"
-                :title="this.getPingCanvasTitle"
-                :description="this.getPingCanvasDescription"
-                @closeCanvas="this.changePingCanvasOpenStatus"
+                v-if="this.getNetstatModalStatus"
+                :title="this.getNetstatModalTitle"
+                :description="this.getNetstatModalDescription"
+                @closeCanvas="this.changeNetstatModalStatus"
             />
 
             <div class="page-body">
                 <div class="container-xl">
                     <div class="row-cards">
                         <TerminalCard
-                            v-for="card in this.getPingTerminalCards" :key="card.title"
+                            v-for="card in this.getNetstatTerminals" :key="card.title"
                             :title="card.title"
                             :input="card.input"
                             :output="card.output"
@@ -36,9 +36,9 @@
 import { mapGetters, mapMutations } from "vuex"
 
 import Base from "../layouts/Base.vue"
+import Modal from "@/components/ModalInfo.vue"
 import PageHeader from "@/components/PageHeader.vue"
 import TerminalCard from "@/components/TerminalCard.vue"
-import Modal from "@/components/ModalInfo.vue"
 
 export default {
 
@@ -52,12 +52,12 @@ export default {
     computed: {
         ...mapGetters([
 
-            "getPingCanvasOpen",
+            "getNetstatModalStatus",
 
-            "getPingCanvasTitle",
-            "getPingCanvasDescription",
+            "getNetstatModalTitle",
+            "getNetstatModalDescription",
 
-            "getPingTerminalCards"
+            "getNetstatTerminals"
 
         ])
     },
@@ -65,16 +65,8 @@ export default {
 	methods: {
 
         ...mapMutations([
-            "changePingCanvasOpenStatus"
+            "changeNetstatModalStatus"
         ]),
-
-        openPingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
-
-        closePingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
 
   },
 
