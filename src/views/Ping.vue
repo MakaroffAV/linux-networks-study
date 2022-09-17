@@ -4,7 +4,7 @@
             <PageHeader 
                 title=""
                 header="Ping"
-                @buttonClicked="this.openPingCanvas"
+                @buttonClicked="this.changePingCanvasOpenStatus"
             />
 
             <Modal
