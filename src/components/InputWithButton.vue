@@ -19,7 +19,7 @@
             style="display: block"
             v-if="this.invalidInput"
         >
-            Ошибка ввода!
+            Ошибка ввода! Должно быть: {{ this.placeholder }}
         </div>
     </div>
 </template>
