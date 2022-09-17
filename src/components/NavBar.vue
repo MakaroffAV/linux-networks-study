@@ -1,27 +1,22 @@
 <template>
-    <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-        	<div class="collapse navbar-collapse">
-				<ul class="navbar-nav pt-lg-3">
-
-					<NavBarElement
-						v-for="elem in this.getNavBarOptions" 
-						:key="elem.title"
+    <div class="navbar-expand-md">
+        <div :class="this.navBarClass">
+            <div class="navbar navbar-light">
+                <div class="container-xl">
+                    <ul class="navbar-nav">
+						<NavBarElement
+							v-for="elem in this.getNavBarOptions"
+							:key="elem.title"
 							:title="elem.title"
-					/>
-
-				</ul>
+						/>
+                    </ul>
+                </div>
             </div>
         </div>
-    </aside>
+    </div>
 </template>
 
 <script>
-
-/*
-	Author:	Makarov Aleksei
-	Target:	Side bar app element
-*/
 
 import { mapGetters } from "vuex"
 
@@ -30,14 +25,22 @@ import NavBarElement from "../components/NavBarElement.vue"
 export default {
 
 	components: {
-		NavBarElement
+    	NavBarElement,
 	},
 
 	computed: {
+
 		...mapGetters([
-			"getNavBarOptions"	
-		])
+			"getNavBarOptions",
+			"getHeaderButtonCollapseStatus"
+		]),
+
+		navBarClass: function() {
+			return this.getHeaderButtonCollapseStatus ? "collapse navbar-collapse show" : "collapse navbar-collapse"
+		}
+
 	}
+
 }
 
 </script>

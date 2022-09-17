@@ -2,6 +2,7 @@
     <body class="layout-fluid theme-light">
         <div class="page">
 
+			<Header />
             <NavBar />
 
 			<div class="page-wrapper">
@@ -15,17 +16,14 @@
 
 <script>
 
-/*
-	Author:	Makarov Aleksei
-	Target:	Base layout page
-*/
-
 import NavBar from "../components/NavBar.vue"
+import Header from "../components/Header.vue"
 
 export default {
 
 	components: {
-		NavBar
+		NavBar,
+		Header
 	}
 
 }

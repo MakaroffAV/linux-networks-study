@@ -10,19 +10,33 @@
                         {{ this.header }}
                     </h2>
                 </div>
+                <div class="col-12 col-md-auto ms-auto d-print-none">
+                    <div class="btn-list">
+                        <a href="#" class="btn btn-primary d-none d-sm-inline-block" @click="this.buttonClicked">
+                            <Icon icon="ant-design:info-circle-filled" width="20" height="20" />
+                            Справка
+                        </a>
+
+                        <a href="#" class="btn btn-primary d-sm-none btn-icon" @click="this.buttonClicked">
+                            <Icon icon="ant-design:info-circle-filled" width="20" height="20" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
+
 <script>
 
-/*
-    Author: Makarov Aleksei
-    Target: Page header component
-*/
+import { Icon } from "@iconify/vue"
 
 export default {
+
+    emits: [
+        "buttonClicked"
+    ],
 
     props: {
         title: {
@@ -33,6 +47,18 @@ export default {
             type: String,
             required: true
         }
+    },
+
+    components: {
+		Icon,
+	},
+
+    methods: {
+
+        buttonClicked() {
+            this.$emit("buttonClicked")
+        }
+    
     }
 
 }
