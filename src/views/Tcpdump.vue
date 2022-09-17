@@ -68,7 +68,11 @@ export default {
             "changeTcpDumpModalStatus"
         ]),
 
-  },
+    },
+
+    created() {
+      document.title = "Tcpdump"
+    }
 
 }
 

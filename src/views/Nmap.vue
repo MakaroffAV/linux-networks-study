@@ -68,7 +68,11 @@ export default {
             "changeNmapModalStatus"
         ]),
 
-  },
+    },
+
+    created() {
+        document.title = "Nmap"
+    }
 
 }
 

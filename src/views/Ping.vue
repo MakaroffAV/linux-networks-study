@@ -68,15 +68,11 @@ export default {
             "changePingCanvasOpenStatus"
         ]),
 
-        openPingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
+    },
 
-        closePingCanvas() {
-            this.changePingCanvasOpenStatus()
-        },
-
-  },
+    created() {
+      document.title = "Ping"
+    }
 
 }
 

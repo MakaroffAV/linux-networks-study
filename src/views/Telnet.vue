@@ -68,8 +68,11 @@ export default {
             "changeTelNetModalStatus"
         ]),
 
+    },
 
-  },
+    created() {
+      document.title = "Telnet"
+    }
 
 }
 

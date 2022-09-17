@@ -68,7 +68,11 @@ export default {
             "changeNetstatModalStatus"
         ]),
 
-  },
+    },
+
+    created() {
+        document.title = "Netstat"
+    }
 
 }
 
